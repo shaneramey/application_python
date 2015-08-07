@@ -30,14 +30,15 @@ attribute :settings_template, :kind_of => [String, NilClass], :default => nil
 attribute :local_settings_file, :kind_of => String, :default => 'local_settings.py'
 attribute :debug, :kind_of => [TrueClass, FalseClass], :default => false
 attribute :collectstatic, :kind_of => [TrueClass, FalseClass, String], :default => false
-attribute :virtualenv_dirname, :kind_of => String, :default => 'env'
+attribute :virtualenv_dir_name, :kind_of => String, :default => 'env'
+attribute :virtualenv_options, :kind_of => String, :default => nil
 
 def local_settings_base
   local_settings_file.split(/[\\\/]/).last
 end
 
 def virtualenv
-  "#{path}/shared/" + virtualenv_dirname
+  "#{path}/shared/" + virtualenv_dir_name
 end
 
 def database(*args, &block)

@@ -113,6 +113,7 @@ def install_packages
     path new_resource.virtualenv
     owner new_resource.owner
     group new_resource.group
+    options new_resource.virtualenv_options
     action :create
   end
 
